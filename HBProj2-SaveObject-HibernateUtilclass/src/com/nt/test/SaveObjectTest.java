@@ -1,6 +1,8 @@
 //SaveObjectTest.java
 package com.nt.test;
 
+import java.util.Arrays;
+
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -15,15 +17,17 @@ public class SaveObjectTest {
 
 	public static void main(String[] args) {
 		System.out.println("main(-) method");
+		try {
+		Class.forName("com.nt.utility.HibernateUtil");
+		}
+		catch(Exception e) {
+			e.getSuppressed();
+		}
 		//Get HB Session obj
 		Session ses=HibernateUtil.getSession();
-		Session ses1=HibernateUtil.getSession();
-		System.out.println(ses.hashCode()+"  "+ses1.hashCode());
 		//prepare Entity class object
 	Actor actor=new Actor();
-		actor.setActorId(920); 
-		actor.setActorName("katrina1");
-		actor.setActorAddrs("mumbai"); actor.setPhone(912253451); 
+		//actor.setActorName("katrina9");
 		actor.setRemuneration(9115566.0f);
 		Transaction tx=null;
 		boolean flag=false;
@@ -56,7 +60,9 @@ public class SaveObjectTest {
 			HibernateUtil.closeSession(ses);
 			//close SessionFactory object
 			HibernateUtil.closeSessionFactory();
-		}//finally  
+		}//finally   
+	
+		
 		
 	}//main
 }//class

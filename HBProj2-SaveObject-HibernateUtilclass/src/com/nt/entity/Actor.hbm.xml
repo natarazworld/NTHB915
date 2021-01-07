@@ -30,13 +30,13 @@
         </property>
     </class> -->
     
-    <class name="com.nt.entity.Actor">
+    <class name="com.nt.entity.Actor"  dynamic-insert="true" >
         <id name="actorId" type="int">
               <generator class="increment"/> 
         </id>
-        <property name="actorName" type="string" length="20"  unique="true" not-null="true"/>
+        <property name="actorName" type="string" length="20"  />
         <property name="actorAddrs"  type="string" length="20"/>
-        <property name="phone"  type="long"  unique="true"/>
+        <property name="phone"  type="long"  />
         <property name="remuneration"  type="float"/>
     </class> 
 </hibernate-mapping>

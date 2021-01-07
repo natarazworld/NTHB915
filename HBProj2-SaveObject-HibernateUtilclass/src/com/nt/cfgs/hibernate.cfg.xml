@@ -19,7 +19,8 @@
          <property name="show_sql">true</property>
          <property name="format_sql">true</property>
          <property name="hbm2ddl.auto">update</property>
-         
+          <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+           
          <!-- mapping file (mandatory) -->
          <mapping resource="com/nt/entity/Actor.hbm.xml"/>
     </session-factory>
