@@ -1,4 +1,4 @@
-//SaveObjectTest.java
+//LoadObjectTest1.java
 package com.nt.test;
 
 import java.util.Arrays;
