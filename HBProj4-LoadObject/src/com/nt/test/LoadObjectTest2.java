@@ -13,22 +13,17 @@ import org.hibernate.cfg.Configuration;
 import com.nt.entity.Actor;
 import com.nt.utility.HibernateUtil;
 
-public class LoadObjectTest1 {
+public class LoadObjectTest2 {
 
 	public static void main(String[] args) {
 		//Get HB Session obj
 		Session ses=HibernateUtil.getSession();
 		try {
-			Actor actor=ses.get(Actor.class,1);
-			if(actor==null)
-				System.out.println("Actor not found");
-			else
-				System.out.println(actor);
-		}
-		catch(HibernateException he) {
-			he.printStackTrace();
-		}
+			Actor actor=ses.load(Actor.class,1);
+		      // System.out.println(actor);
+				}
 		catch(Exception e) {
+			System.out.println("Object not found");
 			e.printStackTrace();
 		}
 		finally {

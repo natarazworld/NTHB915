@@ -1,7 +1,7 @@
 //Actor.java (Entity class)
 package com.nt.entity;
 
-public final class Actor {
+public  class Actor implements IActor {
 	private Integer actorId;
 	private String actorName;
 	private String actorAddrs;

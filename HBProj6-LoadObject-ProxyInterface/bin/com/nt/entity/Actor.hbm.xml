@@ -30,7 +30,7 @@
         </property>
     </class> -->
     
-    <class name="com.nt.entity.Actor"  dynamic-insert="true"   lazy="true" >
+    <class name="com.nt.entity.Actor"     lazy="false"   proxy="com.nt.entity.IActor">
         <id name="actorId" type="int">
               <generator class="increment"/> 
         </id>

@@ -1,30 +1,29 @@
-//LoadObjectTest1.java
+//RefreshingTest2.java
 package com.nt.test;
 
-import java.util.Arrays;
+import java.sql.SQLException;
 
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.nt.entity.Actor;
 import com.nt.utility.HibernateUtil;
 
-public class LoadObjectTest1 {
+public class RefersingObjectTest {
 
 	public static void main(String[] args) {
-		//Get HB Session obj
+		//get SEssion object
 		Session ses=HibernateUtil.getSession();
 		try {
+			//Load object 
 			Actor actor=ses.get(Actor.class,1);
-			if(actor==null)
-				System.out.println("Actor not found");
-			else
-				System.out.println(actor);
-		}
+			System.out.println(actor);
+           System.out.println("--------------------------");
+           Thread.sleep(40000);  //during this time modify db table data
+           ses.refresh(actor);
+           System.out.println(actor);
+		}//try
 		catch(HibernateException he) {
 			he.printStackTrace();
 		}
@@ -32,13 +31,9 @@ public class LoadObjectTest1 {
 			e.printStackTrace();
 		}
 		finally {
-			//close Session obj (connection closing)
+			//close Session,SessionFactory object
 			HibernateUtil.closeSession(ses);
-			//close SessionFactory object
 			HibernateUtil.closeSessionFactory();
-		}//finally   
-	
-		
-		
+		}//finally
 	}//main
 }//class
