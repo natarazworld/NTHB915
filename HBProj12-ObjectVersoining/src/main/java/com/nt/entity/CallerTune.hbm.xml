@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="com.nt.entity.CallerTune" >
+     <id name="callerTuneId"  type="int">
+         <generator class="increment"/>
+     </id>
+     <version name="changeCount"  type="int"/>
+     <property name="callerTune" length="20" type="string"/>
+     <property name="provider" length="20" type="string"/>
+     <property name="mobileNo"  type="long"/>
+     
+   </class>
+        
+</hibernate-mapping>
