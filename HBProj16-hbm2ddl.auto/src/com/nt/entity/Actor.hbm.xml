@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Actor">
+        <id name="actorId" type="int">
+             <generator class="increment"/> 
+        </id>
+        <property name="actorName" type="string" length="30"  unique="true" not-null="true"/>
+        <property name="actorAddrs"  type="string" length="25"/>
+        <property name="phone"  type="long"  unique="true"  length="22"/>
+        <property name="remuneration"  type="float"/>
+    </class> 
+</hibernate-mapping>

@@ -13,7 +13,7 @@
        <property name="show_sql">true</property>
        <property name="format_sql">true</property>
        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
-       <property name="hbm2ddl.auto">update</property>
+       <property name="hbm2ddl.auto">create-drop</property>
        <!-- Mapping class name -->
        <mapping class="com.nt.entity.InsurancePolicy"/>
     </session-factory>
