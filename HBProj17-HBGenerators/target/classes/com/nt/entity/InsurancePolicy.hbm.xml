@@ -10,7 +10,10 @@
            <generator class="org.hibernate.id.Assigned"/>
         </id>
          -->
-         <id name="policyId" type="long"/>
+         <!-- <id name="policyId" type="long"/> -->
+         <id name="policyId"  type="long">
+           <generator class="increment"/>
+         </id>
         
         <property name="policyName" type="string" length="30" not-null="true"/>
         <property name="company"  type="string"    length="22"  not-null="true"/>
