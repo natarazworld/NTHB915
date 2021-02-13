@@ -18,18 +18,13 @@ public class SaveObjectTest {
 		           tx=ses.beginTransaction();
 		            //save object 
 		            InsurancePolicy policy=new InsurancePolicy();
-		              policy.setPolicyName("JA++");
+		              policy.setPolicyId(4567L);
+		              policy.setPolicyName("JA");
 		            policy.setCompany("Axis"); policy.setTenure(25.0f);
-		            
-		            InsurancePolicy policy1=new InsurancePolicy();
-		              policy1.setPolicyName("JS++");
-		            policy1.setCompany("KIC"); policy1.setTenure(15.0f);
-
 		            long idVal=(long)ses.save(policy);
-		            long idVal1=(long)ses.save(policy1);
-		            
-		    	     tx.commit();
-		    	     System.out.println("Objects saved with idvals::"+idVal+" "+idVal1);
+		            System.out.println("Generated id value ::"+idVal);
+	    	     tx.commit();
+		    	     System.out.println("Objects saved with idvals::"+idVal);
 		      }//try2
 		}//try1
 		catch(HibernateException he) {

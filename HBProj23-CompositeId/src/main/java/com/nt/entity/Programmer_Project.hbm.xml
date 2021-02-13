@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+       <class name="com.nt.entity.Programmer_Project"  table="PROGRAMMER_PROJECT">
+       
+       <!-- Composite id filed cfg with seperate id class -->
+         <composite-id name="id" class="com.nt.id.PrgmrProjId">
+            <key-property name="prgmrId" type="int"/>
+            <key-property name="projId"  type="int"/>
+         </composite-id>
+        <property name="prgmrName" type="string" length="20"   not-null="true"/>
+        <property name="prgmrAge"  type="int"/>
+        <property name="projName"  type="string" length="20"  />
+        <property name="teamSize"  type="int"/>
+    </class> 
+</hibernate-mapping>

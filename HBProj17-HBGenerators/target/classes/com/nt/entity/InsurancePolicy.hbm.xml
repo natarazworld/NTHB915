@@ -11,12 +11,71 @@
         </id>
          -->
          <!-- <id name="policyId" type="long"/> -->
-         <id name="policyId"  type="long">
-           <generator class="increment"/>
+         <!-- <id name="policyId"  type="long">
+           <generator class="identity"/>
          </id>
-        
-        <property name="policyName" type="string" length="30" not-null="true"/>
+         -->
+         
+<!--          <id name="policyId"  type="long">
+             <generator class="sequence"/>
+         </id>
+ -->
+       <!--    <id name="policyId"  type="long">
+              <generator class="sequence">
+                  <param name="sequence_name">POLICYID_SEQ</param>
+              </generator>
+         </id>          -->
+         
+     <!--     <id name="policyId"  type="long">
+              <generator class="seqhilo">
+                  <param name="sequence">POLICYID_SEQ</param>
+                  <param name="max_lo">5</param>
+              </generator>
+         </id> -->
+         
+          <!--     <id name="policyId"  type="long">
+              <generator class="seqhilo">
+                 <param name="max_lo">5</param>
+              </generator>
+         </id> -->
+         
+        <!--   <id name="policyId"  type="long">
+              <generator class="seqhilo"/>
+         </id>          -->
+         
+         <!--    <id name="policyId"  type="long">
+              <generator class="native"/>
+         </id> -->
+         
+        <!--    <id name="policyId"  type="long">
+              <generator class="native">
+                  <param name="sequence_name">POLICYID_SEQ</param>
+              </generator>
+         </id> -->
+         
+          <id name="policyId"  type="long">
+              <generator class="select">
+                   <param name="key">policyName</param>
+              </generator>
+         </id>
+         
+ 
+        <property name="policyName" type="string" length="30" not-null="true"  unique-key="true"/>
         <property name="company"  type="string"    length="22"  not-null="true"/>
         <property name="tenure"  type="float"/>
     </class> 
 </hibernate-mapping>
+
+
+<!-- CREATE OR REPLACE TRIGGER TGRR_POLICYID 
+BEFORE INSERT ON INSURANCE_POLICY_GENERATORS  FOR EACH ROW
+DECLARE
+    ID number(10);
+BEGIN
+
+SELECT  POLICYID_SEQ1.NEXTVAL  INTO ID  FROM DUAL;
+  
+  :new.POLICYID := ID;
+  
+END;
+ -->
