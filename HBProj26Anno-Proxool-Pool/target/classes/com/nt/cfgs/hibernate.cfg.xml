@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+ <hibernate-configuration>
+    <session-factory>
+      
+        
+        <!-- Connection provider to work with Proxool -->
+        <property name="connection.provider_class">org.hibernate.proxool.internal.ProxoolConnectionProvider</property>
+      
+      <!-- Proxool properites -->  
+       <property name="hibernate.proxool.pool_alias">pool1</property>
+    <property name="hibernate.proxool.xml">com/nt/cfgs/proxool.xml</property>
+    
+       <!-- hibernate properties -->
+       <property name="show_sql">true</property>
+       <property name="format_sql">true</property>
+       <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+       <property name="hbm2ddl.auto">update</property>
+       <!-- Mapping class name -->
+       <mapping class="com.nt.entity.Programmer_Project"/>
+    </session-factory>
+ </hibernate-configuration>
