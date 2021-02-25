@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+ <hibernate-configuration>
+    <session-factory>
+       <!-- hibernate properties -->
+       <property name="show_sql">true</property>
+       <property name="format_sql">true</property>
+       <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+       <property name="hbm2ddl.auto">update</property>
+       <!-- For server managed jdbc con pool -->
+       <property name="connection.provider_class">org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl</property>
+       <property name="connection.datasource">java:/comp/env/DsJndi</property>
+       
+       <!-- Mapping class name -->
+       <mapping class="com.nt.entity.InsurancePolicy"/>
+    </session-factory>
+ </hibernate-configuration>
