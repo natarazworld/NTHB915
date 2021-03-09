@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Employee" table="HQL_EMPLOYEE">
+          <id name="eno"  type="int">
+              <generator class="increment"/>
+         </id>         
+        <property name="ename" type="string" length="20" not-null="true" />
+        <property name="eadd"  type="string"    length="22"  not-null="true"/>
+        <property name="salary"  type="float"  />
+    </class> 
+    <query name="HQL_GET_EMP_DETAILS">
+         <![CDATA[   FROM  Employee WHERE  salary>=:start and salary<=:end  ]]>
+    </query>
+    
+    <query name="HQL_SALARY_BONUS">
+         <![CDATA[  UPDATE Employee SET salary=salary+:bonus WHERE eadd=:addrs ]]>
+    </query>
+    
+    
+</hibernate-mapping>
+
+
