@@ -2,21 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.nt.entity.BankAccount" table="BANKACCOUNT">
+    <class name="com.nt.entity.BankAccount" table="BANKACCOUNT" where="STATUS NOT IN('CLOSED','BLOCKED','SUSPENDED')">
           <id name="acno"  type="long">
               <generator class="increment"/>
          </id>         
         <property name="holderName" type="string" length="20" not-null="true" />
         <property name="balance"  type="float"      not-null="true"/>
         <property name="status" type="string" length="20"   />
-        <filter name="IGNORE_ACCOUNTS_FILTER"  condition="STATUS NOT IN(:accountType1,:accountType2,:accountType3)"/>
+        <sql-delete>UPDATE BANKACCOUNT SET STATUS='CLOSED'  WHERE ACNO=?</sql-delete>
+        
     </class> 
     
-    <filter-def name="IGNORE_ACCOUNTS_FILTER">
-        <filter-param name="accountType1" type="string"/>
-        <filter-param name="accountType2" type="string"/>
-        <filter-param name="accountType3" type="string"/>
-    </filter-def>
 </hibernate-mapping>
 
 

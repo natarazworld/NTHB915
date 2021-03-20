@@ -9,8 +9,7 @@
         <property name="holderName" type="string" length="20" not-null="true" />
         <property name="balance"  type="float"      not-null="true"/>
         <property name="status" type="string" length="20"   />
-        <filter name="IGNORE_ACCOUNTS_FILTER"  condition="STATUS NOT IN(:accountType1,:accountType2,:accountType3)">
-        </filter>
+        <filter name="IGNORE_ACCOUNTS_FILTER"  condition="STATUS NOT IN(:accountType1,:accountType2,:accountType3)"/>
     </class> 
     
     <filter-def name="IGNORE_ACCOUNTS_FILTER">
