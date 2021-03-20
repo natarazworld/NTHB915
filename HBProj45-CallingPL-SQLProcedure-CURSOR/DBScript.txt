@@ -1,0 +1,11 @@
+create or replace PROCEDURE P_GET_EMPS_BY_SALARY_RANGE 
+(
+  startRange IN number, 
+  endRange IN number, 
+   EMPDETAILS OUT SYS_REFCURSOR 
+) AS 
+BEGIN
+  OPEN EMPDETAILS FOR
+    SELECT *  FROM HQL_EMPLOYEE WHERE SALARY>=startRange AND SALARY<=endRange;
+  
+END ;

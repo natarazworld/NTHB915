@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Employee" table="HQL_EMPLOYEE">
+          <id name="eno"  type="int">
+              <generator class="increment"/>
+         </id>         
+        <property name="ename" type="string" length="20" not-null="true" />
+        <property name="eadd"  type="string"    length="22"  not-null="true"/>
+        <property name="salary"  type="float"  />
+    </class> 
+    <sql-query name="GET_EMPS_BY_SAL_RANGE">
+        <return class="com.nt.entity.Employee"/>  <!-- mapping entity query resullt Entity class -->
+        <![CDATA[   SELECT  ENO,ENAME,EADD,SALARY  FROM  HQL_EMPLOYEE WHERE SALARY>=? AND SALARY<=? ]]> 
+    </sql-query>
+    
+    <sql-query name="GET_EMPS_BY_ADDRS">
+      <return-scalar column="ENO" type="int"/>
+      <return-scalar column="EADD" type="string"/>
+               SELECT ENO,EADD  FROM HQL_EMPLOYEE WHERE EADD=:addrs
+    </sql-query>
+    
+</hibernate-mapping>
+
+

@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION FX_AUTH 
+(
+  UNAME IN VARCHAR2 
+, PASS IN VARCHAR2 
+) RETURN VARCHAR2 AS 
+   CNT NUMBER(2);
+   result varchar2(10);
+BEGIN
+ 
+ SELECT COUNT(*) INTO  CNT FROM USERSLIST WHERE  username=uname AND password=pass;
+ 
+ if(CNT<>0)then
+   result:='VALID CREDENTIALS';
+  else
+   result:='INVALID CREDENTIALS';
+   end if;
+ return result;
+END ;
