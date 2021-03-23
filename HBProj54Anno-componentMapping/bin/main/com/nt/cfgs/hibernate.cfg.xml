@@ -32,6 +32,6 @@
          <property name="hbm2ddl.auto">update</property>
           <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
                <!-- mapping classes -->
-          <mapping resource="com/nt/entity/Person.hbm.xml"/>
+          <mapping class="com.nt.entity.Person"/>
     </session-factory>
 </hibernate-configuration>        
