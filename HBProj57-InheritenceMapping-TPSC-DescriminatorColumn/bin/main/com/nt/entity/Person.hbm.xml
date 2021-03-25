@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Person" table="INH_PERSON_TPSC_DISC"  discriminator-value="PER">
+          <id name="pid"  type="int">
+              <generator class="sequence"/>
+         </id>         
+         <discriminator column="PERSON_TYPE" type="string"/>
+         <property name="pname"  type="string"  length="15"/>
+         <property name="paddrs"  type="string"  length="15"/>
+         <property name="company" type="string" length="15"/>
+         
+         <subclass  name="com.nt.entity.Customer"  discriminator-value="CUST" >
+            <join table="INH_CUSTOMER_TPSC_DISC" >
+              <key column="person_id"  />  <!-- FK column to build the assoication -->
+             <property name="billAmt"  type="float"/>
+             <property name="discount"  type="float"/>
+             </join>
+         </subclass>
+         
+         <subclass  name="com.nt.entity.Employee"   discriminator-value="EMP" >
+            <join table="INH_EMPLOYEE_TPSC_DISC">
+             <key column="person_id"/>  <!-- FK column to build the assoication -->
+             <property name="salary"  type="float"/>
+             <property name="desg"  type="string"  length="15"/>
+             <property name="deptNo"  type="int"  />
+             </join>
+          </subclass>
+         </class> 
+ </hibernate-mapping>
+
+
