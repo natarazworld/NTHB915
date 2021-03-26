@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Person" table="INH_PERSON_TPCC_IMPLICITPOLY"  polymorphism="explicit">
+          <id name="pid"  type="int">
+              <generator class="sequence"/>
+         </id>         
+         <property name="pname"  type="string"  length="15"/>
+         <property name="paddrs"  type="string"  length="15"/>
+         <property name="company" type="string" length="15"/>
+    </class>
+             
+    <class  name="com.nt.entity.Customer"  table="INH_CUSTOMER_TPCC_IMPLICITPOLY" >
+            <id name="pid"  type="int">
+              <generator class="sequence"/>
+         </id>         
+         <property name="pname"  type="string"  length="15"/>
+         <property name="paddrs"  type="string"  length="15"/>
+         <property name="company" type="string" length="15"/>
+            <property name="billAmt"  type="float"/>
+            <property name="discount"  type="float"/>
+    </class>
+         
+     <class  name="com.nt.entity.Employee"  table="INH_EMPLOYEE_TPCC_IMPLICITPOLY" >
+               <id name="pid"  type="int">
+              <generator class="sequence"/>
+         </id>         
+         <property name="pname"  type="string"  length="15"/>
+         <property name="paddrs"  type="string"  length="15"/>
+         <property name="company" type="string" length="15"/>
+             <property name="salary"  type="float"/>
+             <property name="desg"  type="string"  length="15"/>
+             <property name="deptNo"  type="int"  />
+          </class>
+ </hibernate-mapping>
+
+
