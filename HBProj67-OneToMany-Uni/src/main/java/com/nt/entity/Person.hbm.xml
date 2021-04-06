@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Person" table="OTM_UNI_PERSON">
+         <id name="pid"  type="int">
+               <generator class="increment"/>
+         </id>
+         <property name="pname"  length="15" type="string"/>
+         <property name="paddrs"  length="15" type="string"/>
+         <set name="accounts" cascade="all">
+              <key column="PERSOIN_ID"/>
+              <one-to-many  class="com.nt.entity.BankAccount"/>
+         </set>
+      </class> 
+ </hibernate-mapping>
+
+
