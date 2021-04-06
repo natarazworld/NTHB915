@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Student" table="COLLECTION_LIST_STUDENT">
+          <id name="sid"  type="int">
+              <generator class="sequence"/>
+         </id>         
+         <property name="sname"  type="string"  length="15"/>
+         <property name="course"  type="string"  length="15"/>
+         <list name="friends" table="STUDENT_FRIENDS">
+             <key column="stud_id" />
+            <!-- <index column="FRIEND_INDEX" type="int" length="20"/> -->
+            <list-index column="FRIEND_INDEX" base="1" />
+             <element column="FRIEND_NAME" length="15" type="string"/>
+         </list>
+         </class> 
+ </hibernate-mapping>
+
+
