@@ -8,7 +8,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
+//@NoArgsConstructor
 @RequiredArgsConstructor
 public class BankAccount implements Serializable{
    private Long accountNo;
@@ -18,4 +18,9 @@ public class BankAccount implements Serializable{
    private  String bankName;
    @NonNull
    private Double balance;
+   
+   public BankAccount() {
+	   System.out.println("BankAccount:: 0-param constructor");
+   }
+   
 }

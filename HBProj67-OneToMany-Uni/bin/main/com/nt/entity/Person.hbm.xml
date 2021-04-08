@@ -8,7 +8,7 @@
          </id>
          <property name="pname"  length="15" type="string"/>
          <property name="paddrs"  length="15" type="string"/>
-         <set name="accounts" cascade="all">
+         <set name="accounts" cascade="all-delete-orphan"  lazy="extra">
               <key column="PERSOIN_ID"/>
               <one-to-many  class="com.nt.entity.BankAccount"/>
          </set>
