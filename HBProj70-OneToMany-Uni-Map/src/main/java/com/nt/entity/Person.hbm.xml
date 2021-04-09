@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Person" table="OTM_UNI_PERSON_MAP">
+         <id name="pid"  type="int">
+               <generator class="increment"/>
+         </id>
+         <property name="pname"  length="15" type="string"/>
+         <property name="paddrs"  length="15" type="string"/>
+         <map name="accounts" cascade="all-delete-orphan"  lazy="extra">
+              <key column="PERSOIN_ID"/>
+              <map-key column="MAP_INDX" type="string" length="20"/>
+              <one-to-many  class="com.nt.entity.BankAccount"/>
+         </map>
+      </class> 
+ </hibernate-mapping>
+
+
