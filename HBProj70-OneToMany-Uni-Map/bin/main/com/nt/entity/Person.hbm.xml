@@ -8,7 +8,7 @@
          </id>
          <property name="pname"  length="15" type="string"/>
          <property name="paddrs"  length="15" type="string"/>
-         <map name="accounts" cascade="all-delete-orphan"  lazy="extra">
+         <map name="accounts" cascade="persist"  lazy="extra">
               <key column="PERSOIN_ID"/>
               <map-key column="MAP_INDX" type="string" length="20"/>
               <one-to-many  class="com.nt.entity.BankAccount"/>

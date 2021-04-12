@@ -39,7 +39,7 @@ public class OneToManyDAOImpl implements OneToManyDAO {
 
 	}//method
 
-	@Override
+/*	@Override
 	public void loadDataUsingParent() {
 		try(Session ses=HibernateUtil.getSession()){
 			//execute the HQL query
@@ -105,7 +105,7 @@ public class OneToManyDAOImpl implements OneToManyDAO {
 				System.out.println("All childs of a parent are deleted");
 			}
 		}
-		}//method  */
+		}//method  
 
 		@Override
 		public void deleteOneChildFromCollectionChildsBelongingToAParent() {

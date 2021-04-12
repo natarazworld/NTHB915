@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Employee" table="MTO_UNI_EMPLOYEE">
+          <id name="eno"  type="int">
+              <generator class="sequence">
+                 <param name="sequence_name">ENO_SEQ1</param>
+              </generator>
+         </id>         
+         <property name="ename"  type="string"  length="15"/>
+         <property name="eadd"  type="string"  length="15"/>
+         <property name="salary"  type="float"/>
+         <many-to-one name="dept"  class="com.nt.entity.Department"  cascade="none" />
+       </class> 
+ </hibernate-mapping>
+
+
