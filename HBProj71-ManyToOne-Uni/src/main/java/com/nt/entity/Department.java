@@ -8,13 +8,23 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @RequiredArgsConstructor
 //parent class
-public class Department implements Serializable {
+public class Department implements Serializable,IDepartment{
        private Integer dno;
        @NonNull
        private String  dname;
        @NonNull
        private  String location;
+       
+       public Department() {
+    	   System.out.println("Department:: 0-param constructor::"+this.getClass()+" "+this.getClass().getSuperclass());
+       }
+
+	@Override
+	public String toString() {
+		return "Department [dno=" + dno + ", dname=" + dname + ", location=" + location + "]";
+	}
+       
+       
 }

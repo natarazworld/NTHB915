@@ -8,10 +8,9 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @RequiredArgsConstructor
 //child class
-public class Employee implements Serializable {
+public final class Employee implements Serializable,IEmployee {
 	private  Integer eno;
 	@NonNull
 	private String ename;
@@ -20,6 +19,18 @@ public class Employee implements Serializable {
 	@NonNull
 	private  float salary;
 	@NonNull
-	private  Department dept;   // child to parent association  
+	private  IDepartment dept;   // child to parent association  
+	
+	public Employee() {
+		System.out.println("Employee:: 0-param constructor"+this.getClass());
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [eno=" + eno + ", ename=" + ename + ", eadd=" + eadd + ", salary=" + salary + "]";
+	}
+	
+	
+	
 
 }

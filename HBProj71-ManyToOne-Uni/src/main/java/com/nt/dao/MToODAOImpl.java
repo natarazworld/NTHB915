@@ -2,6 +2,8 @@ package com.nt.dao;
 
 
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import org.hibernate.HibernateException;
@@ -10,6 +12,7 @@ import org.hibernate.Transaction;
 
 import com.nt.entity.Department;
 import com.nt.entity.Employee;
+import com.nt.entity.IDepartment;
 import com.nt.utility.HibernateUtil;
 
 public class MToODAOImpl  implements MToODAO {
@@ -112,5 +115,24 @@ public class MToODAOImpl  implements MToODAO {
 			}//if
 		}//catch
 	}
+
+	@Override
+	public void loadDataUsingChild() {
+		//get Session
+		try(Session ses=HibernateUtil.getSession()){
+			       //prepare and execute  HQL query
+								     Query query=ses.createQuery(" FROM Employee");
+										     List<Employee> list=query.getResultList();
+												/*			  list.forEach(emp->{
+															 	 System.out.println("Child ::"+emp); 
+																 IDepartment dept=emp.getDept();
+															 	 System.out.println("Parent::"+dept);
+															  });*/
+		}//try
+		catch(HibernateException he) {
+			he.printStackTrace();
+		}
+		
+	}//method
 
 }//class

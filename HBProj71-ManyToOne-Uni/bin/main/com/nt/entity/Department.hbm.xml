@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.nt.entity.Department" table="MTO_UNI_DEPARTMENT">
+    <class name="com.nt.entity.Department" table="MTO_UNI_DEPARTMENT"  proxy="com.nt.entity.IDepartment">
          <id name="dno"  type="int">
                <generator class="increment"/>
          </id>

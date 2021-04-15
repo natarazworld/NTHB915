@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Vehicle" table="OTOM_BI_VEHICLE">
+          <id name="vehicleId"  type="long">
+              <generator class="sequence">
+                 <param name="sequence_name">VID_SEQ</param>
+              </generator>
+         </id>         
+         <property name="vehicleName"  type="string"  length="15"/>
+         <property name="companyName"  type="string"  length="15"/>
+         <many-to-one name="owner"  class="com.nt.entity.Owner"  cascade="all"  lazy="proxy" />
+       </class> 
+ </hibernate-mapping>
+
+

@@ -12,7 +12,8 @@ public class MToOTest {
 		//dao.saveData();
 		// dao.deletingAllChildsAndItsParent();
 		 //dao.deletingOneChildFromCollectionOfChildsBelonginToAParent();
-		dao.deletingOneChildFromCollectionOfChildsBelonginToAParent();
+		//dao.deletingOneChildFromCollectionOfChildsBelonginToAParent();
+		dao.loadDataUsingChild();
 		
 		//close Sessionfactory
 		HibernateUtil.closeSessionFactory();
