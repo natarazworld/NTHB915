@@ -1,7 +1,10 @@
 package com.nt.dao;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import javax.persistence.Query;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -76,4 +79,25 @@ public class OneToManyBiDAOImpl implements OneToManyBiDAO {
 		
 	}
 
-}
+	@Override
+	public void loadDataUsingParent() {
+	    
+		try(Session ses=HibernateUtil.getSession()){
+	         //prepare and execute HQL/JPQ Query
+			Query query=ses.createQuery("from Owner");
+			List<Owner> list=query.getResultList();
+			list.forEach(owner->{
+				System.out.println("Parent::"+owner);
+				Set<Vehicle> childs=owner.getVehicles();
+				childs.forEach(vehicle->{
+					System.out.println("Child::"+vehicle);
+				});
+			});
+	    }
+		catch(HibernateException he) {
+			he.printStackTrace();
+		}
+		
+	}//loadDataUsingParent
+
+}//class

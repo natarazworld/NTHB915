@@ -10,9 +10,8 @@ public class OneToManyBiTest {
 	public static void main(String[] args) {
 		//create DAO class object
             OneToManyBiDAO dao=new  OneToManyBiDAOImpl();		
-		   //dao.saveDataUsingParent();
-           // dao.saveDataUsingChilds();
-            dao.loadDataUsingParent();
+		    //dao.loadDataUsingParentToChildJoins();
+            dao.loadDataUsingChildToParentJoins();
 		
 		//close Sessionfactory
 		HibernateUtil.closeSessionFactory();

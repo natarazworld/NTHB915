@@ -10,7 +10,7 @@
          </id>         
          <property name="vehicleName"  type="string"  length="15"/>
          <property name="companyName"  type="string"  length="15"/>
-         <many-to-one name="owner"  class="com.nt.entity.Owner"  cascade="all"  lazy="proxy" />
+         <many-to-one name="owner"  column="OWNER_ID"  class="com.nt.entity.Owner"  cascade="all"  lazy="proxy" />
        </class> 
  </hibernate-mapping>
 
