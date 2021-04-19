@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Owner" table="OTOM_BI_OWNER">
+         <id name="ownerId"  type="int">
+               <generator class="increment"/>
+         </id>
+         <property name="ownerName"  length="15" type="string"/>
+         <property name="ownerAddrs"  length="15" type="string"/>
+         <set name="vehicles"   cascade="all-delete-orphan"  lazy="extra"  inverse="true">
+            <key column="OWNER_ID"/>
+            <one-to-many  class="com.nt.entity.Vehicle"  />
+         </set>
+      </class> 
+ </hibernate-mapping>
+
+
