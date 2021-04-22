@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.LibraryMembership" table="OTOPK_LIBRARY_MEMBERSHIP">
+          <id name="lid"  type="int">
+                 <generator class="foreign">
+                      <param name="property">studentDetails</param>
+                 </generator>
+         </id>         
+         <property name="membershipType"  type="string"  length="15"/>
+         <property name="issuedBy"  type="string"  length="15"/>
+         <property name="validFrom" />
+         <property name="validTo" />
+         <one-to-one name="studentDetails" class="com.nt.entity.Student"     cascade="all"  lazy="proxy" />  
+       </class> 
+ </hibernate-mapping>
+
+

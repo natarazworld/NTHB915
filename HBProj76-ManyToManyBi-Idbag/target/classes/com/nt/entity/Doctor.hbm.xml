@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.Doctor" table="MTOM_DOCTOR_IDBAG">
+         <id name="docId"  type="int">
+               <generator class="sequence">
+                   <param name="sequence_name">DOCID_SEQ</param>
+               </generator>
+         </id>
+         <property name="docName"  length="15" type="string"/>
+         <property name="docQlfy"  length="15" type="string"/>
+         <property name="hospital"  length="15" type="string"/>
+         <set name="patients"  table="MTOM_DOCTORS_PATIENTS_IDBAG"  cascade="all"  lazy="extra"  inverse="true">
+            <key column="DOC_ID"/>  <!-- owning side FK column -->
+            <many-to-many  class="com.nt.entity.Patient"   column="PAT_ID" /> <!--non-owning side FK column -->
+         </set>
+      </class> 
+ </hibernate-mapping>
+
+
