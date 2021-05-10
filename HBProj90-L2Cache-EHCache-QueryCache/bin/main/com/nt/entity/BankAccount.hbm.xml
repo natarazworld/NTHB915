@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.BankAccount" table="BANKACCOUNT">
+          <id name="acno"  type="long">
+              <generator class="increment"/>
+         </id>         
+        <property name="holderName" type="string" length="20" not-null="true" />
+        <property name="balance"  type="float"      not-null="true"/>
+        <property name="status" type="string" length="20"   />
+    </class> 
+    
+</hibernate-mapping>
+
+
